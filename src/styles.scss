@@ -22,16 +22,28 @@
 ----------------------*/
 
 /*  [1] variables */
+$shades-light: (
+  shadow-sm: 0 0 10px 0 rgba(133, 133, 133, 0.4),
+  shadow-md: 0 0 20px 0 rgba(133, 133, 133, 0.4),
+  shadow-lg: 0 0 30px 0 rgba(133, 133, 133, 0.4),
+);
+
+$shades-dark: (
+  shadow-sm: 0 0 10px 0 rgba(0, 0, 0, 0.17),
+  shadow-md: 0 0 20px 0 rgba(0, 0, 0, 0.17),
+  shadow-lg: 0 0 30px 0 rgba(0, 0, 0, 0.17),
+);
+
 $themes: (
   light: (
     "text": #111517,
     "background": #fafafa,
-    "elements": #fff,
+    "element": #fff,
   ),
   dark: (
     "text": #fff,
     "background": #202c37,
-    "elements": #2b3945,
+    "element": #2b3945,
   ),
 );
 
@@ -82,16 +94,22 @@ body {
 }
 
 .app.light {
-  @each $name, $color in map-get($themes, light) {
-    --#{$name}: #{$color};
+  @each $key, $value in map-get($themes, light) {
+    --#{$key}: #{$value};
+  }
+  @each $key, $value in $shades-light {
+    --#{$key}: #{$value};
   }
   background-color: var(--background);
   color: var(--text);
 }
 
 .app.dark {
-  @each $name, $color in map-get($themes, dark) {
-    --#{$name}: #{$color};
+  @each $key, $value in map-get($themes, dark) {
+    --#{$key}: #{$value};
+  }
+  @each $key, $value in $shades-dark {
+    --#{$key}: #{$value};
   }
   background-color: var(--background);
   color: var(--text);
