@@ -1,1 +1,98 @@
-/* You can add global styles to this file, and also import other style files */
+/* content 
+|
+|-- [0] imports 
+|
+|-- [1] generics 
+|   |-- [1.1] variables
+|   |-- [1.2] mixins
+|
+|-- [2] site            
+|   |-- [2.1] base styles
+|   |-- [2.2] themes
+
+*/
+
+/* ---------------------
+[0] imports
+----------------------*/
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap");
+
+/* ---------------------
+[1] generics
+----------------------*/
+
+/*  [1] variables */
+$themes: (
+  light: (
+    "text": #111517,
+    "background": #fafafa,
+    "elements": #fff,
+  ),
+  dark: (
+    "text": #fff,
+    "background": #202c37,
+    "elements": #2b3945,
+  ),
+);
+
+/*  [2] mixins */
+@mixin font-smoothing {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+@mixin text-size-adjust {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* ---------------------
+[2] site
+----------------------*/
+
+/*  [2.1] base styles  */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font: 300 1.4rem/1.5 "Nunito Sans", sans-serif;
+  @include font-smoothing();
+  @include text-size-adjust();
+  margin: 0;
+}
+
+/*  [2.2] themes  */
+.app {
+  transition: background-color 300ms ease, color 400ms ease;
+}
+
+.app.light {
+  @each $name, $color in map-get($themes, light) {
+    --#{$name}: #{$color};
+  }
+  background-color: var(--background);
+  color: var(--text);
+}
+
+.app.dark {
+  @each $name, $color in map-get($themes, dark) {
+    --#{$name}: #{$color};
+  }
+  background-color: var(--background);
+  color: var(--text);
+}
