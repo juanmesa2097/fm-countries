@@ -1,16 +1,32 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { IOption } from '../../shared/option.interface';
 
 @Component({
   selector: 'app-select-box',
   templateUrl: './select-box.component.html',
   styleUrls: ['./select-box.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SelectBoxComponent implements OnInit {
+  @Input() dataSource: IOption[];
+  @Input() placeholder: string;
 
-  constructor() { }
+  @Output() change = new EventEmitter<IOption>();
+
+  selectedOption: string;
+  showOptions = false;
+
+  constructor() {}
 
   ngOnInit(): void {
+    this.selectedOption = this.placeholder || '';
   }
 
+  onClickSelectBox() {
+    this.showOptions = !this.showOptions;
+  }
+
+  onClickOption(e) {
+    const { target } = e;
+    this.selectedOption = target.innerHTML;
+  }
 }

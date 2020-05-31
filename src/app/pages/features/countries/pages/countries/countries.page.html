@@ -1,6 +1,17 @@
-<div class="cards-wrapper" *ngIf="countries?.length > 0">
-  <app-country-card
-    *ngFor="let country of countries"
-    [country]="country"
-  ></app-country-card>
+<div class="container-fluid">
+  <div class="countries-toolbar">
+    <input type="text" />
+    <app-select-box
+      [dataSource]="regions"
+      placeholder="Filter by Region"
+      (change)="onChangeRegion($event)"
+    ></app-select-box>
+  </div>
+
+  <div class="countries-wrapper" *ngIf="countries?.length > 0">
+    <app-country-card
+      *ngFor="let country of countries"
+      [country]="country"
+    ></app-country-card>
+  </div>
 </div>

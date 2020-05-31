@@ -1,4 +1,11 @@
-.cards-wrapper {
+.countries-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 3rem 0 0.5rem;
+}
+
+.countries-wrapper {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(29rem, 1fr));
   justify-items: center;

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { first } from 'rxjs/operators';
+import { IOption } from 'src/app/ui/select-box/shared/option.interface';
 import { CountriesService } from '../../shared/countries.service';
 import { Country } from '../../shared/country.model';
 
@@ -9,7 +10,17 @@ import { Country } from '../../shared/country.model';
 })
 export class CountriesPage implements OnInit {
   countries: Country[];
-  constructor(private countriesService: CountriesService) {}
+  regions: IOption[];
+
+  constructor(private countriesService: CountriesService) {
+    this.regions = [
+      { key: 1, value: 'Africa' },
+      { key: 2, value: 'America' },
+      { key: 3, value: 'Asia' },
+      { key: 4, value: 'Europe' },
+      { key: 5, value: 'Oceania' },
+    ];
+  }
 
   ngOnInit(): void {
     this.getCountries();
@@ -24,4 +35,6 @@ export class CountriesPage implements OnInit {
         console.log(countries);
       });
   }
+
+  onChangeRegion(e) {}
 }
