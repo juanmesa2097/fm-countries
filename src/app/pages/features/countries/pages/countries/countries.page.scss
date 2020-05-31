@@ -1,0 +1,6 @@
+.cards-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(29rem, 1fr));
+  justify-items: center;
+  gap: 3rem;
+}

@@ -1,1 +1,6 @@
-<p>countries works!</p>
+<div class="cards-wrapper" *ngIf="countries?.length > 0">
+  <app-country-card
+    *ngFor="let country of countries"
+    [country]="country"
+  ></app-country-card>
+</div>
