@@ -1,0 +1,102 @@
+<!-- container -->
+<div class="container-fluid country-info-container">
+  <!-- row -->
+  <div class="row my-5 py-5">
+    <div class="col-12">
+      <a routerLink="/countries" class="btn px-5 py-2">
+        <span class="material-icons pr-3">
+          arrow_back
+        </span>
+        Back
+      </a>
+    </div>
+  </div>
+  <!-- row end -->
+
+  <!-- row -->
+  <div class="row align-items-center justify-content-between">
+    <!-- flag -->
+    <div
+      class="col-12 col-lg-6 col-info d-flex flex-column justify-content-center mb-5"
+    >
+      <img
+        src="https://restcountries.eu/data/col.svg"
+        alt="Country flag"
+        class="country-flag"
+      />
+    </div>
+    <!-- flag end -->
+
+    <!-- info -->
+    <div
+      class="col-12 col-lg-6 col-info d-flex flex-column justify-content-center mb-5"
+    >
+      <h2 class="mt-4 mb-5">{{ "Japan" }}</h2>
+
+      <!-- row -->
+      <div class="row mb-5">
+        <div class="col-12 col-lg-6 col-info">
+          <ul>
+            <li>
+              <strong class="font-weight-600">Native Name:</strong>
+              {{ "Japan" }}
+            </li>
+            <li>
+              <strong class="font-weight-600">Population:</strong>
+              {{ 99 | number }}
+            </li>
+            <li>
+              <strong class="font-weight-600">Region:</strong>
+              {{ "Japan" }}
+            </li>
+            <li>
+              <strong class="font-weight-600">Sub Region:</strong>
+              {{ "Japan" }}
+            </li>
+            <li>
+              <strong class="font-weight-600">Capital:</strong>
+              {{ "Japan" }}
+            </li>
+          </ul>
+        </div>
+        <div class="col-12 col-lg-6 col-info mt-4 mt-lg-0">
+          <ul>
+            <li>
+              <strong class="font-weight-600">Top Level Domain:</strong>
+              {{ "Japan" }}
+            </li>
+            <li>
+              <strong class="font-weight-600">Currencies:</strong>
+              {{ "Japan" }}
+            </li>
+            <li>
+              <strong class="font-weight-600">Languages:</strong>
+              {{ "Japan" }}
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- row end -->
+
+      <!-- row -->
+      <div class="row no-gutters mt-4">
+        <div class="col-12 col-lg-3">
+          <span class="mr-3">
+            <strong class="font-weight-600">Border Countries:</strong>
+          </span>
+        </div>
+        <div class="col-12 col-lg-9 mt-3 mt-lg-0">
+          <button class="btn px-4 py-1 mr-3">Venezuela</button>
+          <button class="btn px-4 py-1 mr-3">Ecuador</button>
+          <button class="btn px-4 py-1 mr-3">Brasil</button>
+          <button class="btn px-4 py-1 mr-3">Perú</button>
+          <button class="btn px-4 py-1 mr-3">Bolivia</button>
+        </div>
+      </div>
+      <!-- row end -->
+    </div>
+    <!-- info end -->
+  </div>
+  <!-- row end -->
+</div>
+<!-- container end -->

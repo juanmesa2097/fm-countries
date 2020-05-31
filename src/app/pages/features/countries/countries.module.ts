@@ -5,9 +5,11 @@ import { TextBoxModule } from 'src/app/ui/text-box/text-box.module';
 import { CountryCardComponent } from './components/country-card/country-card.component';
 import { CountriesRoutingModule } from './countries-routing.module';
 import { CountriesPage } from './pages/countries/countries.page';
+import { CountryPage } from './pages/country/country.page';
+import { CountryInfoComponent } from './components/country-info/country-info.component';
 
 @NgModule({
-  declarations: [CountriesPage, CountryCardComponent],
+  declarations: [CountriesPage, CountryCardComponent, CountryPage, CountryInfoComponent],
   imports: [
     CommonModule,
     CountriesRoutingModule,
