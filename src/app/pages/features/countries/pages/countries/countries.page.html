@@ -1,15 +1,19 @@
 <div class="container-fluid">
   <div class="countries-toolbar">
-    <app-text-box
-      icon="search"
-      placeholder="Search for a country..."
-      [(value)]="filter"
-    ></app-text-box>
-    <app-select-box
-      [dataSource]="regions"
-      placeholder="Filter by Region"
-      (change)="onChangeRegion($event)"
-    ></app-select-box>
+    <div class="filter-box">
+      <app-text-box
+        icon="search"
+        placeholder="Search for a country..."
+        [(value)]="filter"
+      ></app-text-box>
+    </div>
+    <div class="select-box">
+      <app-select-box
+        [dataSource]="regions"
+        placeholder="Filter by Region"
+        (change)="onChangeRegion($event)"
+      ></app-select-box>
+    </div>
   </div>
 
   <div class="countries-wrapper" *ngIf="countries?.length > 0">

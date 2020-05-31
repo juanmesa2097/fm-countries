@@ -1,6 +1,6 @@
 .card {
-  max-width: 29rem;
-  width: 29rem;
+  min-width: 29rem;
+  width: 100%;
   color: var(--text);
   text-decoration: none;
   box-shadow: var(--shadow-sm);
@@ -24,7 +24,7 @@
     width: 100%;
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: 100%;
+    background-position: 50%;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
   }
