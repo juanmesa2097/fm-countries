@@ -1,16 +1,22 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-text-box',
   templateUrl: './text-box.component.html',
   styleUrls: ['./text-box.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TextBoxComponent implements OnInit {
+  @Input() value: string;
+  @Input() placeholder: string;
+  @Input() icon: string;
 
-  constructor() { }
+  @Output() valueChange = new EventEmitter<string>();
 
-  ngOnInit(): void {
+  constructor() {}
+
+  ngOnInit(): void {}
+
+  onChange(e) {
+    this.valueChange.emit(e);
   }
-
 }

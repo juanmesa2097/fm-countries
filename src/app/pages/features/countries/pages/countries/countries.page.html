@@ -1,6 +1,10 @@
 <div class="container-fluid">
   <div class="countries-toolbar">
-    <input type="text" />
+    <app-text-box
+      icon="search"
+      placeholder="Search for a country..."
+      [(value)]="filter"
+    ></app-text-box>
     <app-select-box
       [dataSource]="regions"
       placeholder="Filter by Region"

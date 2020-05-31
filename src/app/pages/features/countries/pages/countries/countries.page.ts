@@ -11,6 +11,7 @@ import { Country } from '../../shared/country.model';
 export class CountriesPage implements OnInit {
   countries: Country[];
   regions: IOption[];
+  filter = 'hola';
 
   constructor(private countriesService: CountriesService) {
     this.regions = [

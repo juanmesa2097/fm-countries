@@ -45,7 +45,6 @@
     &.show {
       z-index: inherit;
       opacity: 1;
-      //   animation: raise-options 300ms ease forwards;
     }
 
     .select-box-option {
@@ -55,16 +54,5 @@
         background-color: var(--background);
       }
     }
-  }
-}
-
-@keyframes raise-options {
-  from {
-    opacity: 0;
-    transform: scale(-5);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
   }
 }
