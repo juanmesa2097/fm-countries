@@ -25,6 +25,7 @@
             "aot": true,
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
+              "node_modules/material-design-icons/iconfont/material-icons.css",
               "src/assets/styles/bootstrap-reboot.min.css",
               "src/assets/styles/bootstrap-grid.min.css",
               "src/styles.scss"
