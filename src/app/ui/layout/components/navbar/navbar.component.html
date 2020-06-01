@@ -4,9 +4,9 @@
   </a>
   <label class="theme-toggler">
     <span class="material-icons pr-2">
-      brightness_2
+      {{ themeIcon }}
     </span>
-    <input type="checkbox" />
-    <span>Dark Mode</span>
+    <input type="checkbox" (change)="onChangeTheme($event)" />
+    <span>{{ themeText }}</span>
   </label>
 </div>

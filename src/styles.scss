@@ -95,13 +95,12 @@ body {
 }
 
 /*  [2.2] themes  */
-body.app {
+.app {
   transition: background-color 300ms ease, color 400ms ease;
 }
 
-body.app.light,
-body.app,
-body {
+.app.light,
+.app {
   @each $key, $value in map-get($themes, light) {
     --#{$key}: #{$value};
   }
@@ -112,7 +111,7 @@ body {
   color: var(--text);
 }
 
-body.app.dark {
+.app.dark {
   @each $key, $value in map-get($themes, dark) {
     --#{$key}: #{$value};
   }
