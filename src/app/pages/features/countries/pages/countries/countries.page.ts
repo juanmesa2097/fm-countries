@@ -29,7 +29,7 @@ export class CountriesPage implements OnInit {
 
   getCountries() {
     this.countriesService
-      .getAll({ extraEndpoints: ['all'] })
+      .getAll({ extras: 'all' })
       .pipe(first())
       .subscribe((countries) => {
         this.countries = countries;

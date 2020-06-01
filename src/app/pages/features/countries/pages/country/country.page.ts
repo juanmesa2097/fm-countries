@@ -24,7 +24,7 @@ export class CountryPage implements OnInit {
 
   getCountry() {
     this.countriesService
-      .getById(this.alphaCode)
+      .getById(`alpha/${this.alphaCode}`)
       .subscribe((country) => (this.country = country));
   }
 }

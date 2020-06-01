@@ -22,9 +22,10 @@ export abstract class GenericHttpService<T> implements IGenericHttp<T> {
   }
 
   public create(viewModel: T, extras?: string): Observable<T> {
+    const endpoint = this.endpoint && this.endpoint + '/';
     return this.httpClient
       .post<T>(
-        `${this.baseUrl}/${this.endpoint}${extras}`,
+        `${this.baseUrl}/${endpoint}${extras}`,
         this.modelAdapter.encode(viewModel),
         { headers: this.headers }
       )
@@ -32,32 +33,39 @@ export abstract class GenericHttpService<T> implements IGenericHttp<T> {
   }
 
   public update(id: string, viewModel: T, extras?: string): Observable<T> {
+    const endpoint = this.endpoint && this.endpoint + '/';
     const extraEndpoints = extras ? '/' + extras : '';
     return this.httpClient
       .put<T>(
-        `${this.baseUrl}/${this.endpoint}${extraEndpoints}/${id}`,
+        `${this.baseUrl}/${endpoint}${extraEndpoints}/${id}`,
         this.modelAdapter.encode(viewModel),
         { headers: this.headers }
       )
       .pipe(map((data) => this.modelAdapter.adapt(data)));
   }
 
-  public getAll(extras?: string, httpParams?: HttpParams): Observable<T[]> {
+  public getAll(args?: {
+    extras?: string;
+    httpParams?: HttpParams;
+  }): Observable<T[]> {
+    const endpoint = this.endpoint && this.endpoint + '/';
     return this.httpClient
-      .get<T[]>(`${this.baseUrl}/${this.endpoint}/${extras}`, {
-        params: httpParams,
+      .get<T[]>(`${this.baseUrl}/${endpoint}${args?.extras}`, {
+        params: args?.httpParams,
       })
       .pipe(map((data) => this.convertData(data)));
   }
 
   public getById(id: string): Observable<T> {
+    const endpoint = this.endpoint && this.endpoint + '/';
     return this.httpClient
-      .get<T>(`${this.baseUrl}/${this.endpoint}/${id}`)
+      .get<T>(`${this.baseUrl}/${endpoint}${id}`)
       .pipe(map((data) => this.modelAdapter.adapt(data)));
   }
 
   public deleteById(id: string) {
-    return this.httpClient.delete(`${this.baseUrl}/${this.endpoint}/${id}`);
+    const endpoint = this.endpoint && this.endpoint + '/';
+    return this.httpClient.delete(`${this.baseUrl}/${endpoint}${id}`);
   }
 
   protected convertData(data: any): T[] {
