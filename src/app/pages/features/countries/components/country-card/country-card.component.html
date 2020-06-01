@@ -4,7 +4,9 @@
     [style.backgroundImage]="'url(' + country.flag + ')'"
   ></div>
   <div class="card-body">
-    <h2>{{ country.name }}</h2>
+    <h2 class="country-name text-ellipsis" title="{{ country.name }}">
+      {{ country.name }}
+    </h2>
     <ul>
       <li>
         <strong class="font-weight-600">Population:</strong>

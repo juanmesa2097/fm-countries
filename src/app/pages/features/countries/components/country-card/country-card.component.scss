@@ -1,5 +1,6 @@
 .card {
   min-width: 29rem;
+  max-width: 29rem;
   width: 100%;
   color: var(--text);
   text-decoration: none;
@@ -31,6 +32,9 @@
 
   .card-body {
     padding: 2.4rem;
+    .country-name {
+      max-width: 24rem;
+    }
 
     h2 {
       margin-bottom: 1.5rem;
