@@ -24,12 +24,29 @@
   grid-template-columns: 1fr;
   justify-items: center;
   gap: 3rem;
+  overflow-x: hidden;
+  animation-name: countries-entrance;
+  animation-fill-mode: backwards;
+  animation-duration: 1.2s;
+  animation-timing-function: ease;
 
   @media screen and (min-width: 768px) {
     & {
       grid-template-columns: repeat(auto-fit, 29rem);
       justify-content: space-between;
     }
+  }
+}
+
+@keyframes countries-entrance {
+  from {
+    opacity: 0;
+    transform: translateY(30rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
