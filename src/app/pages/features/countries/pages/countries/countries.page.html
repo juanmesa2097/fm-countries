@@ -16,6 +16,10 @@
     </div>
   </div>
 
+  <div *ngIf="isLoading" class="loader-wrapper">
+    <app-loading-spinner></app-loading-spinner>
+  </div>
+
   <ng-container
     *ngIf="(countries | countriesFilterByName: filter) as countriesResult"
   >

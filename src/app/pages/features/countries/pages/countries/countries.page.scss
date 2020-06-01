@@ -33,6 +33,12 @@
   }
 }
 
+.loader-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 18rem;
+}
+
 .not-found-wrapper {
   max-width: 50rem;
   text-align: center;

@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { LoadingSpinnerModule } from '@app/ui/loading-spinner/loading-spinner.module';
 import { SelectBoxModule } from 'src/app/ui/select-box/select-box.module';
 import { TextBoxModule } from 'src/app/ui/text-box/text-box.module';
 import { CountryCardComponent } from './components/country-card/country-card.component';
@@ -24,6 +25,7 @@ import { CountriesFilterByRegionPipe } from './shared/countries-filter-by-region
     CountriesRoutingModule,
     TextBoxModule,
     SelectBoxModule,
+    LoadingSpinnerModule,
   ],
 })
 export class CountriesModule {}

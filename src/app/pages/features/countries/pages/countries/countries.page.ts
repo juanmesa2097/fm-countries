@@ -12,6 +12,7 @@ export class CountriesPage implements OnInit {
   countries: Country[];
   regions: IOption[];
   filter = '';
+  isLoading: boolean;
 
   constructor(private countriesService: CountriesService) {
     this.regions = [
@@ -28,12 +29,13 @@ export class CountriesPage implements OnInit {
   }
 
   getCountries() {
+    this.isLoading = true;
     this.countriesService
       .getAll({ extras: 'all' })
       .pipe(first())
       .subscribe((countries) => {
         this.countries = countries;
-        console.log(countries);
+        this.isLoading = false;
       });
   }
 
