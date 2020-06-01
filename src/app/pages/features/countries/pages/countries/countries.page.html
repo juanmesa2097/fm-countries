@@ -16,10 +16,27 @@
     </div>
   </div>
 
-  <div class="countries-wrapper" *ngIf="countries?.length > 0">
-    <app-country-card
-      *ngFor="let country of countries"
-      [country]="country"
-    ></app-country-card>
-  </div>
+  <ng-container
+    *ngIf="(countries | countriesFilterByName: filter) as countriesResult"
+  >
+    <div class="countries-wrapper" *ngIf="countries?.length > 0">
+      <app-country-card
+        *ngFor="let country of countriesResult; trackBy: trackByCountry"
+        [country]="country"
+      >
+      </app-country-card>
+    </div>
+
+    <div class="not-found-wrapper" *ngIf="countriesResult.length === 0">
+      <h1 class="mb-5 text-ellipsis">
+        There is no country called <br />
+        {{filter}}
+      </h1>
+      <img
+        src="../../../../../../assets/images/not-found.svg"
+        alt="Not found illustration"
+        class="not-found-image"
+      />
+    </div>
+  </ng-container>
 </div>

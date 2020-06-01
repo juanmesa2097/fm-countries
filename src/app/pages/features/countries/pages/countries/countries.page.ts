@@ -37,5 +37,9 @@ export class CountriesPage implements OnInit {
       });
   }
 
+  trackByCountry(index, item: Country) {
+    return item.alpha2Code;
+  }
+
   onChangeRegion(e) {}
 }
