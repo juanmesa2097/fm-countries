@@ -1,0 +1,96 @@
+<!-- row -->
+<div class="row my-5 py-5">
+  <div class="col-12">
+    <a routerLink="/countries" class="btn px-5 py-2">
+      <span class="material-icons pr-3">
+        arrow_back
+      </span>
+      Back
+    </a>
+  </div>
+</div>
+<!-- row end -->
+
+<!-- row -->
+<div class="row align-items-center justify-content-between">
+  <!-- flag -->
+  <div
+    class="col-12 col-lg-6 col-info d-flex flex-column justify-content-center mb-5"
+  >
+    <img src="{{ country.flag }}" alt="Country flag" class="country-flag" />
+  </div>
+  <!-- flag end -->
+
+  <!-- info -->
+  <div
+    class="col-12 col-lg-6 col-info d-flex flex-column justify-content-center mb-5"
+  >
+    <h2 class="mt-4 mb-5">{{ country.name }}</h2>
+
+    <!-- row -->
+    <div class="row mb-5">
+      <div class="col-12 col-lg-6 col-info">
+        <ul>
+          <li>
+            <strong class="font-weight-600">Native Name:</strong>
+            {{ country.nativeName }}
+          </li>
+          <li>
+            <strong class="font-weight-600">Population:</strong>
+            {{ country.population | number }}
+          </li>
+          <li>
+            <strong class="font-weight-600">Region:</strong>
+            {{ country.region }}
+          </li>
+          <li>
+            <strong class="font-weight-600">Sub Region:</strong>
+            {{ country.subregion }}
+          </li>
+          <li>
+            <strong class="font-weight-600">Capital:</strong>
+            {{ country.capital }}
+          </li>
+        </ul>
+      </div>
+      <div class="col-12 col-lg-6 col-info mt-4 mt-lg-0">
+        <ul>
+          <li>
+            <strong class="font-weight-600">Top Level Domain:</strong>
+            {{ country.topLevelDomain }}
+          </li>
+          <li>
+            <strong class="font-weight-600">Currencies:</strong>
+            {{ displayCurrencies(country.currencies) }}
+          </li>
+          <li>
+            <strong class="font-weight-600">Languages:</strong>
+            {{ displayLanguages(country.languages) }}
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- row end -->
+
+    <!-- row -->
+    <div class="row no-gutters mt-4">
+      <div class="col-12 col-lg-3">
+        <span class="mr-3">
+          <strong class="font-weight-600">Border Countries:</strong>
+        </span>
+      </div>
+      <div class="col-12 col-lg-9 mt-3 mt-lg-0">
+        <a
+          *ngFor="let border of country.borders"
+          [routerLink]="['/countries', border]"
+          class="btn px-4 py-1 mr-3 mb-3"
+        >
+          {{ border }}
+        </a>
+      </div>
+    </div>
+    <!-- row end -->
+  </div>
+  <!-- info end -->
+</div>
+<!-- row end -->

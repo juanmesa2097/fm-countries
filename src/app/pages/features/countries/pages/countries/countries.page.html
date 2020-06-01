@@ -1,0 +1,45 @@
+<div class="countries-toolbar">
+  <div class="filter-box">
+    <app-text-box
+      icon="search"
+      placeholder="Search for a country..."
+      [(value)]="countryName"
+    ></app-text-box>
+  </div>
+  <div class="select-box">
+    <app-select-box
+      [dataSource]="regions"
+      placeholder="Filter by Region"
+      (change)="onChangeRegion($event)"
+    ></app-select-box>
+  </div>
+</div>
+
+<div *ngIf="isLoading" class="loader-wrapper">
+  <app-loading-spinner></app-loading-spinner>
+</div>
+
+<ng-container
+  *ngIf="(countries | countriesFilters: { countryName: countryName, countryRegion: countryRegion }) as countriesResult"
+>
+  <div class="countries-wrapper" *ngIf="countries?.length > 0">
+    <app-country-card
+      *ngFor="let country of countriesResult; trackBy: trackByCountry"
+      [country]="country"
+    >
+    </app-country-card>
+  </div>
+
+  <div class="not-found-wrapper" *ngIf="countriesResult.length === 0">
+    <h1 class="mb-5 text-ellipsis">
+      There is no country {{countryRegion === 'all' || countryRegion === '' ? ''
+      : 'in ' + countryRegion | titlecase }} called <br />
+      <span class="text-ellipsis text-country"> {{countryName}}</span>
+    </h1>
+    <img
+      src="../../../../../../assets/images/not-found.svg"
+      alt="Not found illustration"
+      class="not-found-image"
+    />
+  </div>
+</ng-container>

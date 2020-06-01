@@ -1,1 +1,18 @@
-<p>select-box works!</p>
+<div class="select-box" (click)="onClickSelectBox()">
+  <div class="select-box-container">
+    <span>{{ selectedOption }}</span>
+    <span class="select-box-arrow material-icons">
+      keyboard_arrow_down
+    </span>
+  </div>
+  <ul class="select-box-options {{ showOptions ? 'show' : '' }}">
+    <li
+      *ngFor="let option of dataSource"
+      class="select-box-option"
+      [attr.data-key]="option.key"
+      (click)="onClickOption($event)"
+    >
+      {{ option.value }}
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,29 @@
+<a [routerLink]="[country.alpha2Code]" class="card mt-5">
+  <div
+    class="card-header"
+    [style.backgroundImage]="'url(' + country.flag + ')'"
+  ></div>
+  <div class="card-body">
+    <h2 class="country-name text-ellipsis" title="{{ country.name }}">
+      {{ country.name }}
+    </h2>
+    <ul>
+      <li>
+        <strong class="font-weight-600">Population:</strong>
+        {{ country.population | number }}
+      </li>
+      <li>
+        <strong class="font-weight-600">Region:</strong> {{ country.region }}
+      </li>
+      <li>
+        <strong class="font-weight-600">Capital:</strong> {{ country.capital }}
+      </li>
+    </ul>
+  </div>
+</a>
+
+<!-- <p>{{ country.flag }}</p>
+<p>{{ country.name }}</p>
+<p>{{ country.population }}</p>
+<p>{{ country.region }}</p>
+<p>{{ country.capital }}</p> -->

@@ -1,1 +1,11 @@
-<p>text-box works!</p>
+<div class="text-box">
+  <div class="text-box-icon" *ngIf="icon">
+    <span class="material-icons">{{ icon }}</span>
+  </div>
+  <input
+    type="text"
+    [(ngModel)]="value"
+    (ngModelChange)="onChange($event)"
+    placeholder="{{ placeholder }}"
+  />
+</div>

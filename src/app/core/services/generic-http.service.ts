@@ -21,26 +21,23 @@ export abstract class GenericHttpService<T> implements IGenericHttp<T> {
       .set('Accept', 'application/json');
   }
 
-  public create(viewModel: T, extraEndpoints?: string[]): Observable<T> {
+  public create(viewModel: T, extras?: string): Observable<T> {
+    const endpoint = this.endpoint && this.endpoint + '/';
     return this.httpClient
       .post<T>(
-        `${this.baseUrl}/${this.endpoint}/${extraEndpoints?.join('/') || ''}`,
+        `${this.baseUrl}/${endpoint}${extras}`,
         this.modelAdapter.encode(viewModel),
         { headers: this.headers }
       )
       .pipe(map((data) => this.modelAdapter.adapt(data)));
   }
 
-  public update(
-    id: number,
-    viewModel: T,
-    extraEndpoints?: string[]
-  ): Observable<T> {
+  public update(id: string, viewModel: T, extras?: string): Observable<T> {
+    const endpoint = this.endpoint && this.endpoint + '/';
+    const extraEndpoints = extras ? '/' + extras : '';
     return this.httpClient
       .put<T>(
-        `${this.baseUrl}/${this.endpoint}/${
-          extraEndpoints?.join('/') || ''
-        }/${id}`,
+        `${this.baseUrl}/${endpoint}${extraEndpoints}/${id}`,
         this.modelAdapter.encode(viewModel),
         { headers: this.headers }
       )
@@ -48,35 +45,27 @@ export abstract class GenericHttpService<T> implements IGenericHttp<T> {
   }
 
   public getAll(args?: {
+    extras?: string;
     httpParams?: HttpParams;
-    extraEndpoints?: string[];
   }): Observable<T[]> {
+    const endpoint = this.endpoint && this.endpoint + '/';
     return this.httpClient
-      .get<T[]>(
-        `${this.baseUrl}/${this.endpoint}/${
-          args?.extraEndpoints?.join('/') || ''
-        }`,
-        { params: args?.httpParams }
-      )
+      .get<T[]>(`${this.baseUrl}/${endpoint}${args?.extras}`, {
+        params: args?.httpParams,
+      })
       .pipe(map((data) => this.convertData(data)));
   }
 
-  public getById(id: number, extraEndpoints?: string[]): Observable<T> {
+  public getById(id: string): Observable<T> {
+    const endpoint = this.endpoint && this.endpoint + '/';
     return this.httpClient
-      .get<T>(
-        `${this.baseUrl}/${this.endpoint}/${id}/${
-          extraEndpoints?.join('/') || ''
-        }`
-      )
+      .get<T>(`${this.baseUrl}/${endpoint}${id}`)
       .pipe(map((data) => this.modelAdapter.adapt(data)));
   }
 
-  public deleteById(id: number, extraEndpoints?: string[]) {
-    return this.httpClient.delete(
-      `${this.baseUrl}/${this.endpoint}/${
-        extraEndpoints?.join('/') || ''
-      }/${id}`
-    );
+  public deleteById(id: string) {
+    const endpoint = this.endpoint && this.endpoint + '/';
+    return this.httpClient.delete(`${this.baseUrl}/${endpoint}${id}`);
   }
 
   protected convertData(data: any): T[] {

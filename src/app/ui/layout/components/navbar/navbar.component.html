@@ -1,1 +1,12 @@
-<p>navbar works!</p>
+<div class="nav">
+  <a routerLink="/">
+    <h1>Where in the world?</h1>
+  </a>
+  <label class="theme-toggler">
+    <span class="material-icons pr-2">
+      {{ themeIcon }}
+    </span>
+    <input type="checkbox" (change)="onChangeTheme($event)" />
+    <span>{{ themeText }}</span>
+  </label>
+</div>
