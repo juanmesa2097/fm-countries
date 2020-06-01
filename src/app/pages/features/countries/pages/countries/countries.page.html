@@ -33,8 +33,9 @@
 
     <div class="not-found-wrapper" *ngIf="countriesResult.length === 0">
       <h1 class="mb-5 text-ellipsis">
-        There is no country called <br />
-        {{countryName}}
+        There is no country {{countryRegion === 'all' || countryRegion === '' ?
+        '' : 'in ' + countryRegion | titlecase }} called <br />
+        <span class="text-ellipsis text-country"> {{countryName}}</span>
       </h1>
       <img
         src="../../../../../../assets/images/not-found.svg"

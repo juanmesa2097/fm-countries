@@ -8,8 +8,6 @@ import { CountryInfoComponent } from './components/country-info/country-info.com
 import { CountriesRoutingModule } from './countries-routing.module';
 import { CountriesPage } from './pages/countries/countries.page';
 import { CountryPage } from './pages/country/country.page';
-import { CountriesFilterByNamePipe } from './shared/countries-filter-by-name.pipe';
-import { CountriesFilterByRegionPipe } from './shared/countries-filter-by-region.pipe';
 import { CountriesFiltersPipe } from './shared/countries-filters.pipe';
 
 @NgModule({
@@ -18,8 +16,6 @@ import { CountriesFiltersPipe } from './shared/countries-filters.pipe';
     CountryCardComponent,
     CountryPage,
     CountryInfoComponent,
-    CountriesFilterByNamePipe,
-    CountriesFilterByRegionPipe,
     CountriesFiltersPipe,
   ],
   imports: [
