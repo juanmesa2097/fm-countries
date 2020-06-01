@@ -39,12 +39,14 @@ $shades-dark: (
 $themes: (
   light: (
     "text": #111517,
+    "filter-text": #6f6e6e,
     "background": #fafafa,
     "element": #fff,
     "active": #e9e9e9,
   ),
   dark: (
     "text": #fff,
+    "filter-text": #fafafa,
     "background": #202c37,
     "element": #2b3945,
     "active": #202c37,
@@ -93,11 +95,13 @@ body {
 }
 
 /*  [2.2] themes  */
-.app {
+body.app {
   transition: background-color 300ms ease, color 400ms ease;
 }
 
-.app.light {
+body.app.light,
+body.app,
+body {
   @each $key, $value in map-get($themes, light) {
     --#{$key}: #{$value};
   }
@@ -108,7 +112,7 @@ body {
   color: var(--text);
 }
 
-.app.dark {
+body.app.dark {
   @each $key, $value in map-get($themes, dark) {
     --#{$key}: #{$value};
   }
