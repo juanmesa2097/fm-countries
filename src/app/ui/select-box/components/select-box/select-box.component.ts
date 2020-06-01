@@ -28,5 +28,7 @@ export class SelectBoxComponent implements OnInit {
   onClickOption(e) {
     const { target } = e;
     this.selectedOption = target.innerHTML;
+    const key = target.getAttribute('data-key');
+    this.change.emit({ key, value: this.selectedOption });
   }
 }

@@ -10,6 +10,7 @@ import { CountriesPage } from './pages/countries/countries.page';
 import { CountryPage } from './pages/country/country.page';
 import { CountriesFilterByNamePipe } from './shared/countries-filter-by-name.pipe';
 import { CountriesFilterByRegionPipe } from './shared/countries-filter-by-region.pipe';
+import { CountriesFiltersPipe } from './shared/countries-filters.pipe';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { CountriesFilterByRegionPipe } from './shared/countries-filter-by-region
     CountryInfoComponent,
     CountriesFilterByNamePipe,
     CountriesFilterByRegionPipe,
+    CountriesFiltersPipe,
   ],
   imports: [
     CommonModule,

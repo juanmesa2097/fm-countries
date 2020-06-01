@@ -9,6 +9,7 @@
     <li
       *ngFor="let option of dataSource"
       class="select-box-option"
+      [attr.data-key]="option.key"
       (click)="onClickOption($event)"
     >
       {{ option.value }}

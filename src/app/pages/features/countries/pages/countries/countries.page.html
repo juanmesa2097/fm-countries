@@ -4,7 +4,7 @@
       <app-text-box
         icon="search"
         placeholder="Search for a country..."
-        [(value)]="filter"
+        [(value)]="countryName"
       ></app-text-box>
     </div>
     <div class="select-box">
@@ -21,7 +21,7 @@
   </div>
 
   <ng-container
-    *ngIf="(countries | countriesFilterByName: filter) as countriesResult"
+    *ngIf="(countries | countriesFilters: { countryName: countryName, countryRegion: countryRegion }) as countriesResult"
   >
     <div class="countries-wrapper" *ngIf="countries?.length > 0">
       <app-country-card
@@ -34,7 +34,7 @@
     <div class="not-found-wrapper" *ngIf="countriesResult.length === 0">
       <h1 class="mb-5 text-ellipsis">
         There is no country called <br />
-        {{filter}}
+        {{countryName}}
       </h1>
       <img
         src="../../../../../../assets/images/not-found.svg"

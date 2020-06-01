@@ -11,16 +11,18 @@ import { Country } from '../../shared/country.model';
 export class CountriesPage implements OnInit {
   countries: Country[];
   regions: IOption[];
-  filter = '';
+  countryName = '';
+  countryRegion = '';
   isLoading: boolean;
 
   constructor(private countriesService: CountriesService) {
     this.regions = [
-      { key: 1, value: 'Africa' },
-      { key: 2, value: 'America' },
-      { key: 3, value: 'Asia' },
-      { key: 4, value: 'Europe' },
-      { key: 5, value: 'Oceania' },
+      { key: '', value: 'All' },
+      { key: 'africa', value: 'Africa' },
+      { key: 'america', value: 'America' },
+      { key: 'asia', value: 'Asia' },
+      { key: 'europe', value: 'Europe' },
+      { key: 'oceania', value: 'Oceania' },
     ];
   }
 
@@ -43,5 +45,7 @@ export class CountriesPage implements OnInit {
     return item.alpha2Code;
   }
 
-  onChangeRegion(e) {}
+  onChangeRegion(e) {
+    this.countryRegion = e.key;
+  }
 }
