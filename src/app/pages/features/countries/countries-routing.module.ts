@@ -5,7 +5,7 @@ import { CountryPage } from './pages/country/country.page';
 
 const routes: Routes = [
   { path: '', component: CountriesPage },
-  { path: ':id', component: CountryPage },
+  { path: ':alpha', component: CountryPage },
 ];
 
 @NgModule({

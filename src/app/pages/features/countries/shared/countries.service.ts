@@ -10,6 +10,6 @@ import { Country } from './country.model';
 })
 export class CountriesService extends GenericHttpService<Country> {
   constructor(httpClient: HttpClient) {
-    super(httpClient, environment.apiUrl, 'all', new CountryAdapter());
+    super(httpClient, environment.apiUrl, '', new CountryAdapter());
   }
 }

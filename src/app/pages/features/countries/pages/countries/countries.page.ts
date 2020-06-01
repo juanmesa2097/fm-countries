@@ -11,7 +11,7 @@ import { Country } from '../../shared/country.model';
 export class CountriesPage implements OnInit {
   countries: Country[];
   regions: IOption[];
-  filter = 'hola';
+  filter = '';
 
   constructor(private countriesService: CountriesService) {
     this.regions = [
@@ -29,7 +29,7 @@ export class CountriesPage implements OnInit {
 
   getCountries() {
     this.countriesService
-      .getAll()
+      .getAll({ extraEndpoints: ['all'] })
       .pipe(first())
       .subscribe((countries) => {
         this.countries = countries;
