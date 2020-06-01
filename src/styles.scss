@@ -195,6 +195,18 @@ a:hover {
   font-weight: 800;
 }
 
+@media screen and (min-width: 1200px) {
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl {
+    max-width: 1440px;
+    padding-left: 35px;
+    padding-right: 35px;
+  }
+}
+
 /* ---------------------
 [3] components
 ----------------------*/
