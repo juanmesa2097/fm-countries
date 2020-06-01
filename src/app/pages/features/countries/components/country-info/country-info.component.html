@@ -17,11 +17,7 @@
   <div
     class="col-12 col-lg-6 col-info d-flex flex-column justify-content-center mb-5"
   >
-    <img
-      src="https://restcountries.eu/data/col.svg"
-      alt="Country flag"
-      class="country-flag"
-    />
+    <img src="{{ country.flag }}" alt="Country flag" class="country-flag" />
   </div>
   <!-- flag end -->
 
@@ -29,7 +25,7 @@
   <div
     class="col-12 col-lg-6 col-info d-flex flex-column justify-content-center mb-5"
   >
-    <h2 class="mt-4 mb-5">{{ "Japan" }}</h2>
+    <h2 class="mt-4 mb-5">{{ country.name }}</h2>
 
     <!-- row -->
     <div class="row mb-5">
@@ -37,23 +33,23 @@
         <ul>
           <li>
             <strong class="font-weight-600">Native Name:</strong>
-            {{ "Japan" }}
+            {{ country.nativeName }}
           </li>
           <li>
             <strong class="font-weight-600">Population:</strong>
-            {{ 99 | number }}
+            {{ country.population | number }}
           </li>
           <li>
             <strong class="font-weight-600">Region:</strong>
-            {{ "Japan" }}
+            {{ country.region }}
           </li>
           <li>
             <strong class="font-weight-600">Sub Region:</strong>
-            {{ "Japan" }}
+            {{ country.subregion }}
           </li>
           <li>
             <strong class="font-weight-600">Capital:</strong>
-            {{ "Japan" }}
+            {{ country.capital }}
           </li>
         </ul>
       </div>
@@ -61,15 +57,15 @@
         <ul>
           <li>
             <strong class="font-weight-600">Top Level Domain:</strong>
-            {{ "Japan" }}
+            {{ country.topLevelDomain }}
           </li>
           <li>
             <strong class="font-weight-600">Currencies:</strong>
-            {{ "Japan" }}
+            {{ displayCurrencies(country.currencies) }}
           </li>
           <li>
             <strong class="font-weight-600">Languages:</strong>
-            {{ "Japan" }}
+            {{ displayLanguages(country.languages) }}
           </li>
         </ul>
       </div>
@@ -84,11 +80,13 @@
         </span>
       </div>
       <div class="col-12 col-lg-9 mt-3 mt-lg-0">
-        <button class="btn px-4 py-1 mr-3">Venezuela</button>
-        <button class="btn px-4 py-1 mr-3">Ecuador</button>
-        <button class="btn px-4 py-1 mr-3">Brasil</button>
-        <button class="btn px-4 py-1 mr-3">Perú</button>
-        <button class="btn px-4 py-1 mr-3">Bolivia</button>
+        <a
+          *ngFor="let border of country.borders"
+          [routerLink]="['/countries', border]"
+          class="btn px-4 py-1 mr-3 mb-3"
+        >
+          {{ border }}
+        </a>
       </div>
     </div>
     <!-- row end -->

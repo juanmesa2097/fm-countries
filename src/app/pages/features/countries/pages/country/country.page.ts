@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CountriesService } from '../../shared/countries.service';
 import { Country } from '../../shared/country.model';
 
@@ -12,9 +12,11 @@ export class CountryPage implements OnInit {
   alphaCode: string;
 
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
     private countriesService: CountriesService
   ) {
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     this.alphaCode = this.route.snapshot.paramMap.get('alpha');
   }
 
