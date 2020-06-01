@@ -38,13 +38,15 @@
     top: calc(100% + 0.5rem);
     background: inherit;
     box-shadow: var(--shadow-sm);
-    transition: 200ms all ease;
+    transition: 400ms opacity ease;
     opacity: 0;
     z-index: -1;
+    left: -9999px;
 
     &.show {
       z-index: inherit;
       opacity: 1;
+      left: 0;
     }
 
     .select-box-option {
